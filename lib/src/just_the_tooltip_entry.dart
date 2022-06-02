@@ -32,8 +32,7 @@ class JustTheTooltipEntry extends StatefulWidget implements JustTheInterface {
     this.tailLength = 16.0,
     this.tailBaseWidth = 32.0,
     this.tailBuilder = JustTheInterface.defaultTailBuilder,
-    this.animatedTransitionBuilder =
-        JustTheInterface.defaultAnimatedTransitionBuilder,
+    this.animatedTransitionBuilder = JustTheInterface.defaultAnimatedTransitionBuilder,
     this.backgroundColor,
     this.textDirection = TextDirection.ltr,
     this.shadow,
@@ -207,7 +206,7 @@ class _JustTheTooltipEntryState extends _JustTheTooltipState<Widget> {
 
   @override
   void didUpdateWidget(covariant JustTheInterface oldWidget) {
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       _updateEntries();
     });
 
