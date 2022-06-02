@@ -31,6 +31,7 @@ class JustTheTooltip extends StatefulWidget implements JustTheInterface {
     // the tooltip open. But in that case, it seems like we can create a new
     // more narrow field in favor.
     this.isModal = false,
+    this.persistent = false,
     this.waitDuration,
     this.showDuration,
     this.triggerMode,
@@ -74,6 +75,9 @@ class JustTheTooltip extends StatefulWidget implements JustTheInterface {
 
   @override
   final bool isModal;
+
+  @override
+  final bool persistent;
 
   @override
   final Duration? waitDuration;
@@ -201,7 +205,7 @@ class _JustTheTooltipOverlayState extends _JustTheTooltipState<OverlayEntry> {
     setState(
       () {
         // In the case of a modal, we enter a skrim overlay to catch taps
-        if (widget.isModal) {
+        if (widget.isModal && !widget.persistent) {
           entry = entryOverlay;
           skrim = skrimOverlay;
 
