@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:just_the_tooltip/just_the_tooltip.dart';
+import 'package:just_the_tooltip_fork/just_the_tooltip_fork.dart';
 
 void _ensureTooltipVisible(GlobalKey key) {
   // This function uses "as dynamic"to defeat the static analysis. In general
@@ -41,8 +41,7 @@ void main() {
   //   ),
   // );
 
-  testWidgets('Does tooltip end up in the right place - center',
-      (WidgetTester tester) async {
+  testWidgets('Does tooltip end up in the right place - center', (WidgetTester tester) async {
     final GlobalKey key = GlobalKey();
     await tester.pumpWidget(
       Directionality(
@@ -93,16 +92,14 @@ void main() {
     final RenderBox tip = tester.renderObject(
       _findTooltipContainer(tooltipText),
     );
-    final Offset tipInGlobal =
-        tip.localToGlobal(tip.size.topCenter(Offset.zero));
+    final Offset tipInGlobal = tip.localToGlobal(tip.size.topCenter(Offset.zero));
     // The exact position of the left side depends on the font the test framework
     // happens to pick, so we don't test that.
     expect(tipInGlobal.dx, 300.0);
     expect(tipInGlobal.dy, 20.0);
   });
 
-  testWidgets(
-      'Does tooltip end up in the right place - center with padding outside overlay',
+  testWidgets('Does tooltip end up in the right place - center with padding outside overlay',
       (WidgetTester tester) async {
     final GlobalKey key = GlobalKey();
     await tester.pumpWidget(
@@ -159,8 +156,7 @@ void main() {
     final RenderBox tip = tester.renderObject(
       _findTooltipContainer(tooltipText),
     );
-    final Offset tipInGlobal =
-        tip.localToGlobal(tip.size.topCenter(Offset.zero));
+    final Offset tipInGlobal = tip.localToGlobal(tip.size.topCenter(Offset.zero));
     // The exact position of the left side depends on the font the test framework
     // happens to pick, so we don't test that.
     expect(tipInGlobal.dx, 320.0);

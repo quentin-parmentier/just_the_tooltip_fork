@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:just_the_tooltip/just_the_tooltip.dart';
+import 'package:just_the_tooltip_fork/just_the_tooltip_fork.dart';
 
 class TooltipAreaExamplePage extends StatefulWidget {
   const TooltipAreaExamplePage({Key? key}) : super(key: key);
@@ -71,8 +71,7 @@ class _TooltipAreaExamplePageState extends State<TooltipAreaExamplePage> {
                               TextField(
                                 maxLines: null,
                                 keyboardType: TextInputType.text,
-                                textCapitalization:
-                                    TextCapitalization.sentences,
+                                textCapitalization: TextCapitalization.sentences,
                                 style: Theme.of(context).textTheme.headline6,
                                 controller: titleController,
                               ),
@@ -81,14 +80,12 @@ class _TooltipAreaExamplePageState extends State<TooltipAreaExamplePage> {
                                 controller: descriptionController,
                                 maxLines: null,
                                 keyboardType: TextInputType.multiline,
-                                textCapitalization:
-                                    TextCapitalization.sentences,
+                                textCapitalization: TextCapitalization.sentences,
                                 style: Theme.of(context).textTheme.subtitle1,
                               ),
                               const SizedBox(height: 16.0),
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: [
                                   Expanded(
                                     child: OutlinedButton(

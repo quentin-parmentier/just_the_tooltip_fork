@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:just_the_tooltip/just_the_tooltip.dart';
-import 'package:just_the_tooltip/src/models/target_information.dart';
-import 'package:just_the_tooltip/src/positioned_tooltip.dart';
+import 'package:just_the_tooltip_fork/just_the_tooltip_fork.dart';
+import 'package:just_the_tooltip_fork/src/models/target_information.dart';
+import 'package:just_the_tooltip_fork/src/positioned_tooltip.dart';
 
 part 'just_the_tooltip_entry.dart';
 

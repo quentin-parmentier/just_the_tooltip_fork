@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:just_the_tooltip/just_the_tooltip.dart';
+import 'package:just_the_tooltip_fork/just_the_tooltip_fork.dart';
 
 class TooltipPersistentExamplePage extends StatefulWidget {
   const TooltipPersistentExamplePage({Key? key}) : super(key: key);

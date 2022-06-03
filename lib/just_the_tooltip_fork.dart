@@ -1,4 +1,4 @@
-library just_the_tooltip;
+library just_the_tooltip_fork;
 
 export 'src/just_the_tooltip.dart';
 export 'src/just_the_tooltip_area.dart';

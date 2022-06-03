@@ -2,8 +2,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:just_the_tooltip/src/utils/get_axis_direction.dart';
-import 'package:just_the_tooltip/src/utils/get_position_dependent_offset.dart';
+import 'package:just_the_tooltip_fork/src/utils/get_axis_direction.dart';
+import 'package:just_the_tooltip_fork/src/utils/get_position_dependent_offset.dart';
 
 typedef TailBuilder = Path Function(
   Offset point1,
@@ -119,8 +119,7 @@ class PositionedTooltip extends SingleChildRenderObjectWidget {
         preferredDirection,
       ),
     );
-    properties
-        .add(DiagnosticsProperty<Offset>('offsetToTarget', offsetToTarget));
+    properties.add(DiagnosticsProperty<Offset>('offsetToTarget', offsetToTarget));
     properties.add(
       DiagnosticsProperty<BorderRadiusGeometry>('borderRadius', borderRadius),
     );
@@ -144,8 +143,7 @@ class PositionedTooltip extends SingleChildRenderObjectWidget {
   }
 }
 
-class _RenderPositionedTooltip extends RenderShiftedBox
-    with DebugOverflowIndicatorMixin {
+class _RenderPositionedTooltip extends RenderShiftedBox with DebugOverflowIndicatorMixin {
   _RenderPositionedTooltip({
     RenderBox? child,
     required EdgeInsetsGeometry margin,
@@ -465,61 +463,41 @@ class _RenderPositionedTooltip extends RenderShiftedBox
       case AxisDirection.up:
       case AxisDirection.down:
         final maxWidth = constraints.maxWidth - margin.horizontal;
-        final hasVerticalScroll =
-            scrollPosition != null && scrollAxis == Axis.vertical;
+        final hasVerticalScroll = scrollPosition != null && scrollAxis == Axis.vertical;
 
         if (direction == AxisDirection.up) {
-          final heightAvailable = target.dy +
-              (hasVerticalScroll ? scrollPosition!.extentBefore : 0.0);
+          final heightAvailable = target.dy + (hasVerticalScroll ? scrollPosition!.extentBefore : 0.0);
 
           return constraints.copyWith(
             maxWidth: maxWidth,
-            maxHeight: heightAvailable -
-                targetHeightRadius -
-                offsetAndTailLength -
-                margin.top,
+            maxHeight: heightAvailable - targetHeightRadius - offsetAndTailLength - margin.top,
           );
         } else {
-          final heightAvailable = constraints.maxHeight +
-              (hasVerticalScroll ? scrollPosition!.extentAfter : 0.0);
+          final heightAvailable = constraints.maxHeight + (hasVerticalScroll ? scrollPosition!.extentAfter : 0.0);
 
           return constraints.copyWith(
             maxWidth: maxWidth,
-            maxHeight: heightAvailable -
-                target.dy -
-                targetHeightRadius -
-                offsetAndTailLength -
-                margin.bottom,
+            maxHeight: heightAvailable - target.dy - targetHeightRadius - offsetAndTailLength - margin.bottom,
           );
         }
       case AxisDirection.left:
       case AxisDirection.right:
         final maxHeight = constraints.maxHeight - margin.vertical;
-        final hasHorizontalScroll =
-            scrollPosition != null && scrollAxis == Axis.horizontal;
+        final hasHorizontalScroll = scrollPosition != null && scrollAxis == Axis.horizontal;
 
         if (direction == AxisDirection.left) {
-          final widthAvailable = target.dx +
-              (hasHorizontalScroll ? scrollPosition!.extentBefore : 0.0);
+          final widthAvailable = target.dx + (hasHorizontalScroll ? scrollPosition!.extentBefore : 0.0);
 
           return constraints.copyWith(
             maxHeight: maxHeight,
-            maxWidth: widthAvailable -
-                margin.left -
-                targetWidthRadius -
-                offsetAndTailLength,
+            maxWidth: widthAvailable - margin.left - targetWidthRadius - offsetAndTailLength,
           );
         } else {
-          final widthAvailable = constraints.maxWidth +
-              (hasHorizontalScroll ? scrollPosition!.extentAfter : 0.0);
+          final widthAvailable = constraints.maxWidth + (hasHorizontalScroll ? scrollPosition!.extentAfter : 0.0);
 
           return constraints.copyWith(
             maxHeight: maxHeight,
-            maxWidth: widthAvailable -
-                target.dx -
-                margin.right -
-                targetWidthRadius -
-                offsetAndTailLength,
+            maxWidth: widthAvailable - target.dx - margin.right - targetWidthRadius - offsetAndTailLength,
           );
         }
     }
@@ -539,8 +517,7 @@ class _RenderPositionedTooltip extends RenderShiftedBox
       case AxisDirection.up:
         final baseLength = math.min(
           tailBaseWidth,
-          (rect.right - rect.left) -
-              (radius.bottomLeft.x + radius.bottomRight.x),
+          (rect.right - rect.left) - (radius.bottomLeft.x + radius.bottomRight.x),
         );
         final halfBaseLength = baseLength / 2;
         final insetLeftCorner = rect.left + radius.bottomLeft.x;
@@ -560,12 +537,10 @@ class _RenderPositionedTooltip extends RenderShiftedBox
         x = _target.dx;
         y = _target.dy;
 
-        x2 = (math.min(_target.dx, insetRightCorner) - halfBaseLength)
-            .clamp(insetLeftCorner, insetRightCorner);
+        x2 = (math.min(_target.dx, insetRightCorner) - halfBaseLength).clamp(insetLeftCorner, insetRightCorner);
         y2 = rect.bottom;
 
-        x3 = (math.max(_target.dx, insetLeftCorner) + halfBaseLength)
-            .clamp(insetLeftCorner, insetRightCorner);
+        x3 = (math.max(_target.dx, insetLeftCorner) + halfBaseLength).clamp(insetLeftCorner, insetRightCorner);
         y3 = rect.bottom;
         break;
       case AxisDirection.down:
@@ -586,12 +561,10 @@ class _RenderPositionedTooltip extends RenderShiftedBox
         x = _target.dx;
         y = _target.dy;
 
-        x2 = (math.max(_target.dx, insetLeftCorner) + halfBaseLength)
-            .clamp(insetLeftCorner, insetRightCorner);
+        x2 = (math.max(_target.dx, insetLeftCorner) + halfBaseLength).clamp(insetLeftCorner, insetRightCorner);
         y2 = rect.top;
 
-        x3 = (math.min(_target.dx, insetRightCorner) - halfBaseLength)
-            .clamp(insetLeftCorner, insetRightCorner);
+        x3 = (math.min(_target.dx, insetRightCorner) - halfBaseLength).clamp(insetLeftCorner, insetRightCorner);
         y3 = rect.top;
         break;
       case AxisDirection.left:
@@ -613,12 +586,10 @@ class _RenderPositionedTooltip extends RenderShiftedBox
         y = _target.dy;
 
         x2 = rect.right;
-        y2 = (math.max(_target.dy, insetTopCorner) + halfBaseLength)
-            .clamp(insetTopCorner, insetBottomCorner);
+        y2 = (math.max(_target.dy, insetTopCorner) + halfBaseLength).clamp(insetTopCorner, insetBottomCorner);
 
         x3 = rect.right;
-        y3 = (math.min(_target.dy, insetBottomCorner) - halfBaseLength)
-            .clamp(insetTopCorner, insetBottomCorner);
+        y3 = (math.min(_target.dy, insetBottomCorner) - halfBaseLength).clamp(insetTopCorner, insetBottomCorner);
 
         break;
       case AxisDirection.right:
@@ -641,12 +612,10 @@ class _RenderPositionedTooltip extends RenderShiftedBox
         y = _target.dy;
 
         x2 = rect.left;
-        y2 = (math.min(_target.dy, insetBottomCorner) - halfBaseLength)
-            .clamp(insetTopCorner, insetBottomCorner);
+        y2 = (math.min(_target.dy, insetBottomCorner) - halfBaseLength).clamp(insetTopCorner, insetBottomCorner);
 
         x3 = rect.left;
-        y3 = (math.max(_target.dy, insetTopCorner) + halfBaseLength)
-            .clamp(insetTopCorner, insetBottomCorner);
+        y3 = (math.max(_target.dy, insetTopCorner) + halfBaseLength).clamp(insetTopCorner, insetBottomCorner);
         break;
     }
 

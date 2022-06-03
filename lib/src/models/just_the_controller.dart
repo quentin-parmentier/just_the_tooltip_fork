@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:just_the_tooltip/just_the_tooltip.dart';
+import 'package:just_the_tooltip_fork/just_the_tooltip_fork.dart';
 
 enum TooltipStatus { isShowing, isHidden }
 
@@ -9,8 +9,7 @@ enum TooltipStatus { isShowing, isHidden }
 /// method is called to give the focusNode the context and state of its parent.
 class JustTheController extends ValueNotifier<TooltipStatus> {
   // TODO: This value is not refelected in the initial state of the tooltip
-  JustTheController({TooltipStatus? value})
-      : super(value ?? TooltipStatus.isHidden) {
+  JustTheController({TooltipStatus? value}) : super(value ?? TooltipStatus.isHidden) {
     showTooltip = defaultShowTooltip;
     hideTooltip = defaultHideTooltip;
   }

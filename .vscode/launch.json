@@ -5,12 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "just_the_tooltip",
+            "name": "just_the_tooltip_fork",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "just_the_tooltip (profile mode)",
+            "name": "just_the_tooltip_fork (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"

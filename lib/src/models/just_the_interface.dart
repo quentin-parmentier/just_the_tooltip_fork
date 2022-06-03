@@ -1,8 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:just_the_tooltip/src/models/just_the_controller.dart';
-import 'package:just_the_tooltip/src/positioned_tooltip.dart';
+import 'package:just_the_tooltip_fork/src/models/just_the_controller.dart';
+import 'package:just_the_tooltip_fork/src/positioned_tooltip.dart';
 
 typedef ContentBuilder = Widget Function(BuildContext context, Widget content);
 
