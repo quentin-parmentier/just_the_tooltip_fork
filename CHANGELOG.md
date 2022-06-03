@@ -1,3 +1,7 @@
+## [0.0.11+3] - Jun 03, 2021
+* Handle flutter 3.
+* Add `persistent` to make `isModal` not closable with a tap on the screen
+
 ## [0.0.11+2] - Dec 14, 2021
 * Avoid tooltip area gesture detection for manual trigger mode. Credit @Pavel-Sulimau
 
